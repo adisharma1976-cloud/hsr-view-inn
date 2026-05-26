@@ -1,0 +1,1244 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HSR View Inn — Girls' Hostel, Kandoli</title>
+<meta name="description" content="A quiet, secure girls' hostel a 2-minute walk from UPES Kandoli. Boutique rooms, four home-cooked meals, gym, theatre, 24/7 safety.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f3ec;
+  --bg-2:#efe9dd;
+  --bg-3:#ebe4d3;
+  --ink:#1c1a16;
+  --ink-2:#4a463e;
+  --ink-3:#857f72;
+  --line:#dcd5c4;
+  --line-soft:#e6dfce;
+  --accent:#2b4a3e;      /* deep forest green */
+  --accent-ink:#1a2e26;
+  --accent-2:#b85c3a;    /* terracotta */
+  --accent-soft:#e8e2d0;
+  --shadow: 0 1px 2px rgba(28,26,22,.04), 0 8px 24px -8px rgba(28,26,22,.08);
+
+  --display: "Newsreader", ui-serif, Georgia, serif;
+  --body: "Manrope", ui-sans-serif, system-ui, sans-serif;
+
+  --maxw: 1240px;
+  --pad: clamp(20px, 4vw, 56px);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+
+/* ─── typography ─── */
+.eyebrow{
+  font-family:var(--body);
+  font-size:11px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  font-weight:600;
+  color:var(--accent);
+}
+.eyebrow .dot{
+  display:inline-block;width:5px;height:5px;border-radius:50%;
+  background:var(--accent-2);margin:0 .6em .14em 0;vertical-align:middle;
+}
+h1,h2,h3,h4{
+  font-family:var(--display);
+  font-weight:400;
+  letter-spacing:-.01em;
+  color:var(--ink);
+  margin:0;
+  text-wrap:balance;
+}
+h1{font-size:clamp(44px, 6.4vw, 88px); line-height:1.02; letter-spacing:-.025em}
+h2{font-size:clamp(34px, 4.2vw, 56px); line-height:1.08; letter-spacing:-.02em}
+h3{font-size:clamp(22px, 2vw, 28px); line-height:1.2}
+h4{font-size:18px;line-height:1.3;font-weight:500;font-family:var(--body);letter-spacing:0}
+em.serif, .italic{font-family:var(--display);font-style:italic;font-weight:400}
+p{margin:0; color:var(--ink-2); text-wrap:pretty}
+.lede{font-size:clamp(17px,1.4vw,20px); line-height:1.55; color:var(--ink-2); max-width:58ch}
+
+/* ─── nav ─── */
+.nav{
+  position:fixed; inset:0 0 auto 0; z-index:50;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:18px var(--pad);
+  transition: background .3s ease, border-color .3s ease, padding .25s ease, box-shadow .3s ease;
+  border-bottom:1px solid transparent;
+}
+.nav.scrolled{
+  background:
+    linear-gradient(180deg, rgba(247,243,236,.94) 0%, rgba(247,243,236,.82) 100%);
+  backdrop-filter:saturate(160%) blur(16px);
+  -webkit-backdrop-filter:saturate(160%) blur(16px);
+  padding-top:14px; padding-bottom:14px;
+  box-shadow: 0 1px 0 rgba(28,26,22,.04), 0 12px 32px -18px rgba(28,26,22,.18);
+}
+/* gradient hairline border that fades at the edges */
+.nav.scrolled::after{
+  content:"";
+  position:absolute; left:0; right:0; bottom:-1px; height:1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(43,74,62,.18) 14%,
+    rgba(184,92,58,.22) 50%,
+    rgba(43,74,62,.18) 86%,
+    transparent 100%);
+  pointer-events:none;
+}
+.brand{
+  display:flex; align-items:center; gap:10px;
+  font-family:var(--display); font-size:20px; letter-spacing:-.01em;
+  white-space:nowrap; flex-shrink:0;
+  position:relative;
+}
+.brand .mark{
+  width:32px;height:32px;border-radius:50%;
+  background:
+    radial-gradient(120% 100% at 30% 20%, #4d7765 0%, #2b4a3e 45%, #1a2e26 100%);
+  color:#f0e0b7;
+  display:grid;place-items:center; font-family:var(--display); font-style:italic;
+  font-size:16px; font-weight:500;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.16),
+    inset 0 -2px 4px rgba(0,0,0,.18),
+    0 1px 2px rgba(28,26,22,.18),
+    0 4px 14px -4px rgba(43,74,62,.45);
+  position:relative;
+}
+.brand .mark::after{
+  content:"";
+  position:absolute; inset:1px; border-radius:50%;
+  background: linear-gradient(180deg, rgba(255,255,255,.18) 0%, rgba(255,255,255,0) 38%);
+  pointer-events:none;
+}
+.brand .name{
+  background: linear-gradient(95deg, var(--ink) 0%, var(--accent) 60%, var(--ink) 100%);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  background-size: 200% 100%;
+  background-position: 0% 50%;
+  transition: background-position .6s ease;
+}
+.brand:hover .name{ background-position: 100% 50%; }
+.brand small{
+  font-family:var(--body); font-size:10px; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--ink-3); margin-left:6px; font-weight:600;
+  padding:3px 8px; border-radius:999px;
+  background: linear-gradient(180deg, rgba(232,226,208,.7), rgba(232,226,208,.35));
+  border:1px solid rgba(43,74,62,.12);
+}
+.nav-links{display:flex;gap:30px;align-items:center}
+.nav-links a{
+  font-size:13.5px; color:var(--ink-2); font-weight:500;
+  position:relative; padding: 4px 0;
+  transition: color .2s ease;
+}
+.nav-links a::after{
+  content:"";
+  position:absolute; left:0; right:0; bottom:-2px; height:1.5px;
+  background: linear-gradient(90deg, var(--accent) 0%, var(--accent-2) 100%);
+  border-radius:2px;
+  transform: scaleX(0); transform-origin: left center;
+  transition: transform .35s cubic-bezier(.2,.7,.2,1);
+}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a:hover::after{ transform: scaleX(1); }
+
+.nav-cta{
+  display:inline-flex; align-items:center; gap:10px;
+  padding:11px 18px 11px 16px; border-radius:999px;
+  background:
+    linear-gradient(135deg, #345a4b 0%, #2b4a3e 45%, #1a2e26 100%);
+  color:#f3ead4;
+  font-size:13px; font-weight:600; letter-spacing:.01em;
+  white-space:nowrap; flex-shrink:0;
+  position:relative; overflow:hidden;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.14),
+    inset 0 -1px 0 rgba(0,0,0,.18),
+    0 1px 2px rgba(28,26,22,.16),
+    0 8px 22px -8px rgba(43,74,62,.55);
+  transition: transform .18s ease, box-shadow .25s ease, filter .2s ease;
+}
+.nav-cta::before{
+  content:"";
+  position:absolute; inset:0;
+  background: linear-gradient(115deg,
+    transparent 0%,
+    rgba(255,255,255,.18) 50%,
+    transparent 100%);
+  transform: translateX(-110%);
+  transition: transform .7s cubic-bezier(.2,.7,.2,1);
+  pointer-events:none;
+}
+.nav-cta:hover{
+  transform:translateY(-1px);
+  filter: brightness(1.06);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.16),
+    inset 0 -1px 0 rgba(0,0,0,.18),
+    0 2px 4px rgba(28,26,22,.18),
+    0 14px 28px -10px rgba(43,74,62,.6);
+}
+.nav-cta:hover::before{ transform: translateX(110%); }
+.nav-cta svg{width:14px;height:14px; color:#e8d6a3}
+.nav-cta .live{
+  width:7px; height:7px; border-radius:50%;
+  background: radial-gradient(circle at 35% 35%, #ffd99a 0%, #c97a3e 60%, #8d4624 100%);
+  box-shadow: 0 0 0 2px rgba(184,92,58,.18), 0 0 10px rgba(217,134,80,.6);
+  animation: livePulse 2.4s ease-in-out infinite;
+  flex-shrink:0;
+}
+@keyframes livePulse{
+  0%,100%{ box-shadow: 0 0 0 2px rgba(184,92,58,.18), 0 0 8px rgba(217,134,80,.45); }
+  50%   { box-shadow: 0 0 0 4px rgba(184,92,58,.05), 0 0 16px rgba(217,134,80,.85); }
+}
+
+@media (max-width: 820px){
+  .nav-links{display:none}
+}
+
+/* ─── hero ─── */
+.hero{
+  padding: 120px var(--pad) 60px;
+  display:grid; grid-template-columns: 1.15fr .85fr;
+  gap: clamp(28px, 5vw, 72px);
+  align-items:end;
+  max-width: var(--maxw); margin:0 auto;
+  min-height: 92vh;
+}
+.hero-copy{padding-bottom:40px}
+.hero h1 em{
+  font-style:italic; color:var(--accent);
+  font-weight:300;
+}
+.hero-meta{
+  display:flex; gap:18px; flex-wrap:wrap;
+  margin-top:36px;
+  padding-top:24px;
+  border-top:1px solid var(--line);
+}
+.meta-item{
+  display:flex; flex-direction:column; gap:4px;
+}
+.meta-item .k{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+.meta-item .v{font-family:var(--display); font-size:20px; line-height:1.1}
+.meta-item .v em{font-style:italic;color:var(--accent)}
+.hero-ctas{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:14px 22px; border-radius:999px;
+  font-size:14px; font-weight:600;
+  transition: all .18s ease;
+  white-space:nowrap;
+}
+.btn-primary{background:var(--accent); color:#f3ead4}
+.btn-primary:hover{background:var(--accent-ink); transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.btn-ghost:hover{border-color:var(--ink);background:rgba(0,0,0,.02)}
+.btn svg{width:15px;height:15px}
+
+.hero-photo{
+  position:relative;
+  aspect-ratio: 3 / 4.4;
+  border-radius: 4px;
+  overflow:hidden;
+  background:var(--bg-2);
+}
+.hero-photo img{
+  width:100%;height:100%; object-fit:cover; object-position: center 30%;
+}
+.hero-photo .photo-caption{
+  position:absolute; left:18px; bottom:18px;
+  background:rgba(28,26,22,.55);
+  backdrop-filter: blur(8px);
+  color:#f3ead4;
+  padding:8px 14px;
+  border-radius:999px;
+  font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:500;
+}
+.hero-locale{
+  display:inline-flex; align-items:center; gap:10px;
+  padding:7px 14px; border-radius:999px;
+  background:var(--accent-soft); color:var(--accent-ink);
+  font-size:12px; letter-spacing:.12em; text-transform:uppercase; font-weight:600;
+  margin-bottom:28px;
+}
+.hero-locale svg{width:12px;height:12px}
+
+@media (max-width: 820px){
+  .hero{grid-template-columns:1fr; min-height:auto; padding-top:110px}
+  .hero-photo{aspect-ratio:4/5; order:-1}
+  .hero-copy{padding-bottom:0}
+}
+
+/* ─── trust strip ─── */
+.trust{
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  background:var(--bg-2);
+}
+.trust-inner{
+  max-width:var(--maxw); margin:0 auto;
+  padding: 28px var(--pad);
+  display:grid; grid-template-columns: repeat(4, 1fr); gap:0;
+}
+.trust-item{
+  padding: 8px 24px;
+  display:flex; flex-direction:column; gap:6px;
+  border-left:1px solid var(--line);
+}
+.trust-item:first-child{border-left:0; padding-left:0}
+.trust-item .num{
+  font-family:var(--display); font-size:clamp(28px, 3vw, 38px); line-height:1; color:var(--accent);
+}
+.trust-item .num em{font-style:italic;font-weight:400}
+.trust-item .label{font-size:12.5px; color:var(--ink-2); line-height:1.4}
+
+@media (max-width:780px){
+  .trust-inner{grid-template-columns:repeat(2, 1fr); gap:18px 0}
+  .trust-item:nth-child(3){border-left:0; padding-left:0}
+}
+
+/* ─── section base ─── */
+section.section{
+  padding: clamp(80px, 10vw, 140px) var(--pad);
+}
+.section-inner{max-width:var(--maxw); margin:0 auto}
+.section-head{
+  display:grid; grid-template-columns: 1fr 1.4fr; gap: clamp(28px, 6vw, 80px);
+  align-items:end; margin-bottom: clamp(48px, 6vw, 80px);
+}
+.section-head .lede{margin-top:18px}
+@media (max-width: 820px){
+  .section-head{grid-template-columns:1fr; align-items:start}
+}
+
+/* ─── rooms ─── */
+.rooms-grid{
+  display:grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
+}
+.room{
+  background:#fffdf7;
+  border:1px solid var(--line-soft);
+  border-radius: 6px;
+  overflow:hidden;
+  display:flex; flex-direction:column;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.room:hover{transform: translateY(-3px); box-shadow: var(--shadow)}
+.room-photo{
+  aspect-ratio: 4 / 3.2;
+  background: var(--bg-3);
+  overflow:hidden; position:relative;
+}
+.room-photo img{
+  width:100%;height:100%; object-fit:cover;
+  transition: transform .6s ease;
+}
+.room:hover .room-photo img{transform:scale(1.04)}
+.room-photo .tag{
+  position:absolute; top:14px; left:14px;
+  background:rgba(255,253,247,.92); color:var(--ink);
+  padding:6px 12px; border-radius:999px;
+  font-size:11px; letter-spacing:.12em; text-transform:uppercase; font-weight:600;
+}
+.room-photo.placeholder{
+  background:
+    repeating-linear-gradient(135deg,
+      var(--bg-2) 0 14px,
+      var(--bg-3) 14px 28px);
+  display:grid; place-items:center;
+  color:var(--ink-3);
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size:11px; letter-spacing:.1em; text-transform:uppercase;
+}
+.room-body{
+  padding: 24px 24px 26px; display:flex; flex-direction:column; gap:14px; flex:1;
+}
+.room-title{
+  font-family:var(--display); font-size:26px; line-height:1.1; letter-spacing:-.01em;
+}
+.room-title em{font-style:italic; color:var(--accent); font-weight:400}
+.room-features{
+  display:flex; flex-wrap:wrap; gap:6px;
+  margin-top: -4px;
+}
+.feat{
+  font-size:11px; letter-spacing:.06em;
+  padding: 4px 10px; border-radius:999px;
+  background:var(--bg-2); color:var(--ink-2);
+  font-weight:500;
+}
+.room-prices{
+  margin-top:auto; padding-top: 18px;
+  border-top:1px dashed var(--line);
+  display:grid; grid-template-columns: 1fr 1fr; gap: 6px 16px;
+}
+.price-row .l{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-weight:600;margin-bottom:2px}
+.price-row .p{font-family:var(--display); font-size:22px; line-height:1.1}
+.price-row .p .cur{font-size:13px; vertical-align: 0.18em; margin-right:2px; color:var(--ink-3); font-family:var(--body); font-weight:600; letter-spacing:.04em}
+.price-row .per{font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); font-weight:600; margin-top:2px}
+
+.inclusions{
+  margin-top:36px;
+  padding:22px 26px;
+  background:var(--bg-2);
+  border-radius:6px;
+  display:flex; align-items:center; gap:18px; flex-wrap:wrap;
+}
+.inclusions .label{font-family:var(--display);font-style:italic;font-size:20px;color:var(--accent-ink);margin-right:6px}
+.inclusions .items{
+  display:flex; flex-wrap:wrap; gap: 6px 18px;
+  font-size:13.5px; color:var(--ink-2);
+}
+.inclusions .items span{display:inline-flex;align-items:center;gap:6px}
+.inclusions .items span::before{content:""; width:4px;height:4px;border-radius:50%;background:var(--accent-2)}
+
+@media (max-width: 980px){
+  .rooms-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width: 680px){
+  .rooms-grid{grid-template-columns:1fr}
+}
+
+/* ─── amenities ─── */
+.amenities{background:var(--bg-2)}
+.amen-grid{
+  display:grid; grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: minmax(180px, auto);
+  gap: 14px;
+}
+.amen{
+  position:relative; overflow:hidden; border-radius:6px;
+  background:#fffdf7; border:1px solid var(--line-soft);
+  padding: 22px 22px 22px;
+  display:flex; flex-direction:column; justify-content:space-between; gap:16px;
+}
+.amen .num{
+  font-family:var(--display); font-style:italic;
+  font-size:13px; color:var(--ink-3);
+}
+.amen .ttl{
+  font-family:var(--display); font-size:24px; line-height:1.15; letter-spacing:-.01em;
+}
+.amen .ttl em{font-style:italic; color:var(--accent)}
+.amen .desc{font-size:13.5px; line-height:1.5; color:var(--ink-2); max-width:32ch}
+
+.amen.photo{padding:0; min-height:240px}
+.amen.photo img{width:100%;height:100%;object-fit:cover; position:absolute; inset:0}
+.amen.photo .overlay{
+  position:absolute; inset:0;
+  background: linear-gradient(180deg, rgba(28,26,22,0) 30%, rgba(28,26,22,.7) 100%);
+  display:flex; align-items:flex-end; padding:20px;
+  color:#f3ead4;
+}
+.amen.photo .overlay .ttl{color:#f3ead4}
+.amen.photo .overlay .ttl em{color:#d6c8a0}
+
+.amen.dark{background:var(--accent); border-color:var(--accent)}
+.amen.dark .ttl, .amen.dark .num{color:#f3ead4}
+.amen.dark .ttl em{color:#d6c8a0}
+.amen.dark .desc{color:rgba(243,234,212,.78)}
+
+.a1{grid-column: span 5}
+.a2{grid-column: span 4}
+.a3{grid-column: span 3}
+.a4{grid-column: span 4}
+.a5{grid-column: span 5}
+.a6{grid-column: span 3}
+
+@media (max-width: 980px){
+  .amen-grid{grid-template-columns: repeat(6, 1fr)}
+  .a1,.a2,.a3,.a4,.a5,.a6{grid-column: span 3}
+}
+@media (max-width: 580px){
+  .amen-grid{grid-template-columns: 1fr}
+  .a1,.a2,.a3,.a4,.a5,.a6{grid-column: span 1}
+}
+
+/* ─── safety ─── */
+.safety-grid{
+  display:grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 80px); align-items:start;
+}
+.safety-stats{
+  display:grid; grid-template-columns: 1fr 1fr; gap: 14px;
+  margin-top: 32px;
+}
+.safety-stat{
+  padding: 22px 22px 26px;
+  background:var(--bg-2);
+  border-radius:6px;
+}
+.safety-stat .big{
+  font-family:var(--display); font-size: 56px; line-height:1; color:var(--accent);
+  letter-spacing:-.02em; margin-bottom:8px;
+}
+.safety-stat .big em{font-style:italic; font-weight:400}
+.safety-stat .lab{font-size:13px; color:var(--ink-2); line-height:1.4}
+.safety-list{
+  list-style:none; padding:0; margin: 0;
+  display:flex; flex-direction:column;
+}
+.safety-list li{
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line-soft);
+  display:grid; grid-template-columns: 36px 1fr; gap: 14px;
+  align-items:flex-start;
+}
+.safety-list li:last-child{border-bottom:0}
+.safety-list .ico{
+  width:32px;height:32px;border-radius:50%;
+  background:var(--accent-soft); color:var(--accent);
+  display:grid; place-items:center; flex-shrink:0;
+}
+.safety-list .ico svg{width:15px;height:15px}
+.safety-list .ttl{font-family:var(--display); font-size:19px; line-height:1.2; margin-bottom:4px}
+.safety-list .ds{font-size:13.5px; color:var(--ink-2); line-height:1.5}
+
+@media (max-width: 820px){
+  .safety-grid{grid-template-columns:1fr}
+}
+
+/* ─── meals ─── */
+.meals{background: var(--accent); color:#f3ead4; overflow:hidden}
+.meals .section-inner{position:relative}
+.meals h2{color:#f3ead4}
+.meals h2 em{color:#e8d6a3; font-style:italic; font-weight:300}
+.meals .lede{color:rgba(243,234,212,.78)}
+.meals-grid{
+  display:grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+  margin-top: 48px;
+}
+.meal-card{
+  padding: 26px 22px 28px;
+  background: rgba(243,234,212,.06);
+  border:1px solid rgba(243,234,212,.16);
+  border-radius:6px;
+}
+.meal-card .nm{
+  font-family:var(--display); font-size:24px; line-height:1.1;
+}
+.meal-card .nm em{font-style:italic; color:#e8d6a3}
+.meal-card .tm{font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:rgba(243,234,212,.5); font-weight:600; margin-bottom:10px}
+.meal-card .ex{font-size:13px; color:rgba(243,234,212,.7); line-height:1.5; margin-top:10px}
+
+@media (max-width:820px){
+  .meals-grid{grid-template-columns:1fr 1fr}
+}
+
+/* ─── location ─── */
+.location-grid{
+  display:grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 4vw, 56px);
+  align-items:stretch;
+}
+.map-frame{
+  position:relative; min-height: 460px;
+  border-radius:6px; overflow:hidden;
+  border:1px solid var(--line);
+  background:var(--bg-2);
+}
+.map-frame iframe{width:100%;height:100%;border:0;position:absolute;inset:0}
+.map-directions{
+  position:absolute; bottom:18px; right:18px; z-index:2;
+  display:inline-flex; align-items:center; gap:8px;
+  padding:11px 18px; border-radius:999px;
+  background:var(--ink); color:#f3ead4;
+  font-size:12.5px; font-weight:600; letter-spacing:.02em;
+  box-shadow: 0 8px 24px -8px rgba(28,26,22,.4);
+  white-space:nowrap;
+  transition: transform .15s ease, background .15s ease;
+}
+.map-directions:hover{background:var(--accent-ink); transform:translateY(-1px)}
+.map-directions svg{width:14px;height:14px}
+.map-coords{
+  position:absolute; top:14px; left:14px; z-index:2;
+  padding:6px 12px; border-radius:999px;
+  background:rgba(255,253,247,.92);
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size:10.5px; letter-spacing:.06em; color:var(--ink-2);
+  white-space:nowrap;
+}
+.address-card{
+  padding: 36px;
+  background:#fffdf7;
+  border:1px solid var(--line-soft);
+  border-radius:6px;
+  display:flex; flex-direction:column; gap: 24px;
+}
+.addr-row{
+  display:grid; grid-template-columns: 28px 1fr; gap:16px; align-items:start;
+}
+.addr-row .lab{font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3); font-weight:600; margin-bottom:4px}
+.addr-row .val{font-family:var(--display); font-size:18px; line-height:1.35; color:var(--ink)}
+.addr-row .ico{
+  width:24px;height:24px;border-radius:50%; background:var(--accent-soft); color:var(--accent);
+  display:grid;place-items:center; margin-top:2px;
+}
+.addr-row .ico svg{width:11px;height:11px}
+.nearby{
+  border-top:1px solid var(--line-soft);
+  padding-top: 22px;
+  display:flex; flex-direction:column; gap: 12px;
+}
+.nearby .h{font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3); font-weight:600}
+.nearby-list{display:flex; flex-direction:column; gap:8px; margin:0; padding:0; list-style:none}
+.nearby-list li{display:flex; justify-content:space-between; align-items:baseline; gap:12px; font-size:14px}
+.nearby-list .pl{color:var(--ink-2)}
+.nearby-list .dx{font-family:var(--display); font-style:italic; color:var(--accent)}
+.nearby-list .ln{flex:1; border-bottom:1px dotted var(--line); position:relative; top:-4px}
+
+@media (max-width: 820px){
+  .location-grid{grid-template-columns:1fr}
+  .map-frame{min-height:360px}
+}
+
+/* ─── book / cta ─── */
+.book{
+  background: var(--ink); color:#f3ead4;
+}
+.book .section-inner{
+  display:grid; grid-template-columns: 1.3fr 1fr; gap: clamp(28px, 5vw, 80px); align-items:center;
+}
+.book h2{color:#f3ead4}
+.book h2 em{font-style:italic; color:#e8d6a3; font-weight:300}
+.book .lede{color:rgba(243,234,212,.7); margin-top:22px}
+.book-actions{
+  display:flex; flex-direction:column; gap:14px;
+}
+.book-phone{
+  padding: 28px 32px;
+  background: rgba(243,234,212,.06);
+  border: 1px solid rgba(243,234,212,.16);
+  border-radius: 6px;
+  display:flex; flex-direction:column; gap: 6px;
+  transition: background .2s ease;
+}
+.book-phone:hover{background: rgba(243,234,212,.1)}
+.book-phone.alt{
+  background: transparent;
+  border-style: dashed;
+  border-color: rgba(243,234,212,.22);
+}
+.book-phone.alt .num{font-size: clamp(28px, 3.2vw, 38px)}
+.book-phone.alt:hover{background: rgba(243,234,212,.06)}
+.book-phone .lab{font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:rgba(243,234,212,.55); font-weight:600}
+.book-phone .num{font-family:var(--display); font-size: clamp(34px, 4vw, 48px); line-height:1; letter-spacing:-.02em}
+.book-phone .sub{font-size:13px; color:rgba(243,234,212,.55); margin-top:4px}
+.book-secondary{
+  display:flex; gap:10px; flex-wrap:wrap;
+}
+.book-secondary .btn{background:transparent;color:#f3ead4;border:1px solid rgba(243,234,212,.25)}
+.book-secondary .btn:hover{background:rgba(243,234,212,.08)}
+
+@media (max-width: 820px){
+  .book .section-inner{grid-template-columns:1fr}
+}
+
+/* ─── footer ─── */
+footer{
+  padding: 36px var(--pad) 28px;
+  background: var(--ink);
+  color: rgba(243,234,212,.55);
+  border-top: 1px solid rgba(243,234,212,.08);
+}
+.foot-inner{
+  max-width: var(--maxw); margin:0 auto;
+  display:flex; justify-content:space-between; gap:24px; align-items:center; flex-wrap:wrap;
+  font-size:12px; letter-spacing:.04em;
+}
+.foot-inner .brand{color: #f3ead4}
+.foot-inner .brand .name{
+  background: none; -webkit-text-fill-color: #f3ead4; color: #f3ead4;
+}
+.foot-inner .brand .mark{
+  background: radial-gradient(120% 100% at 30% 20%, #f3ead4 0%, #d6c8a0 60%, #b3a273 100%);
+  color: var(--ink);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.4),
+    inset 0 -2px 4px rgba(0,0,0,.12),
+    0 4px 14px -6px rgba(243,234,212,.3);
+}
+.foot-inner .brand small{
+  color: rgba(243,234,212,.55);
+  background: rgba(243,234,212,.06);
+  border-color: rgba(243,234,212,.14);
+}
+
+/* ─── animations ─── */
+.fade-up{opacity:0; transform: translateY(20px); transition: opacity .8s ease, transform .8s ease;}
+.fade-up.in{opacity:1; transform:none}
+.fade-up.d1{transition-delay:.08s}
+.fade-up.d2{transition-delay:.16s}
+.fade-up.d3{transition-delay:.24s}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{transition:none !important; animation:none !important}
+  .fade-up{opacity:1; transform:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<header class="nav" id="nav">
+  <a href="#top" class="brand" aria-label="HSR View Inn home">
+    <span class="mark">H</span>
+    <span class="name">HSR View Inn</span>
+    <small>Kandoli</small>
+  </a>
+  <nav class="nav-links">
+    <a href="#rooms">Rooms</a>
+    <a href="#amenities">Amenities</a>
+    <a href="#safety">Safety</a>
+    <a href="#location">Location</a>
+  </nav>
+  <a class="nav-cta" href="tel:+919654946285" aria-label="Call to book">
+    <span class="live" aria-hidden="true"></span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    96549 46285
+  </a>
+</header>
+
+<!-- ─── HERO ─── -->
+<section class="hero" id="top">
+  <div class="hero-copy">
+    <div class="hero-locale fade-up">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      Kandoli · 2 minutes from UPES
+    </div>
+    <h1 class="fade-up d1">A quiet home,<br><em>two minutes</em> from campus.</h1>
+    <p class="lede fade-up d2" style="margin-top:28px">
+      HSR View Inn is a girls' hostel in Kandoli — set against the calm of the Doon hills,
+      a short walk from UPES. Boutique rooms, four home-cooked meals a day,
+      and the kind of safety that lets you focus on the work that matters.
+    </p>
+
+    <div class="hero-ctas fade-up d3">
+      <a href="tel:+919654946285" class="btn btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Call to book a visit
+      </a>
+      <a href="#rooms" class="btn btn-ghost">
+        See rooms &amp; rates
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <div class="hero-meta fade-up d3">
+      <div class="meta-item">
+        <span class="k">Walk to UPES</span>
+        <span class="v"><em>2</em> minutes</span>
+      </div>
+      <div class="meta-item">
+        <span class="k">Meals daily</span>
+        <span class="v"><em>4</em> home-cooked</span>
+      </div>
+      <div class="meta-item">
+        <span class="k">Safety record</span>
+        <span class="v"><em>3</em> years clean</span>
+      </div>
+    </div>
+  </div>
+
+  <figure class="hero-photo fade-up d2">
+    <img src="photos/04.jpg" alt="HSR View Inn building exterior">
+    <span class="photo-caption">The House · Pondha, Uttarakhand</span>
+  </figure>
+</section>
+
+<!-- ─── TRUST STRIP ─── -->
+<aside class="trust">
+  <div class="trust-inner">
+    <div class="trust-item">
+      <span class="num"><em>2</em>-min walk</span>
+      <span class="label">to UPES Kandoli campus gate</span>
+    </div>
+    <div class="trust-item">
+      <span class="num">24<em>/</em>7</span>
+      <span class="label">on-site security &amp; CCTV coverage</span>
+    </div>
+    <div class="trust-item">
+      <span class="num"><em>4</em> meals</span>
+      <span class="label">home-cooked, daily, fresh local sourcing</span>
+    </div>
+    <div class="trust-item">
+      <span class="num">All-in</span>
+      <span class="label">Wi-Fi, laundry, utilities &amp; amenities included</span>
+    </div>
+  </div>
+</aside>
+
+<!-- ─── ROOMS ─── -->
+<section class="section" id="rooms">
+  <div class="section-inner">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow"><span class="dot"></span>Rooms &amp; Rates</div>
+        <h2 style="margin-top:14px">Three ways<br>to <em class="italic">stay</em>.</h2>
+      </div>
+      <p class="lede">
+        Every room is finished with built-in storage, study lighting, and a wall-mounted desk.
+        Pick the room that fits — rates are <em class="italic">all-inclusive</em>, billed yearly, and discounted for early or long bookings.
+      </p>
+    </div>
+
+    <div class="rooms-grid">
+
+      <!-- Type 1 -->
+      <article class="room">
+        <div class="room-photo">
+          <span class="tag">Non-AC</span>
+          <img src="photos/01.webp" alt="Twin room with wooden wardrobe and teal accent wall">
+        </div>
+        <div class="room-body">
+          <h3 class="room-title">Type 1 · <em>Classic</em></h3>
+          <div class="room-features">
+            <span class="feat">Twin/Single</span>
+            <span class="feat">Wardrobe</span>
+            <span class="feat">Study desk</span>
+            <span class="feat">Ceiling fan</span>
+          </div>
+          <p style="font-size:13.5px">An everyday room, well-lit and well-ventilated. The most popular pick.</p>
+          <div class="room-prices">
+            <div class="price-row">
+              <div class="l">Single</div>
+              <div class="p"><span class="cur">₹</span>2,50,000</div>
+              <div class="per">per year</div>
+            </div>
+            <div class="price-row">
+              <div class="l">Double</div>
+              <div class="p"><span class="cur">₹</span>1,70,000</div>
+              <div class="per">per year</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Type 2 -->
+      <article class="room">
+        <div class="room-photo">
+          <span class="tag">AC</span>
+          <img src="photos/02.webp" alt="Air-conditioned room with cushioned headboard and geometric wall">
+        </div>
+        <div class="room-body">
+          <h3 class="room-title">Type 2 · <em>Comfort</em></h3>
+          <div class="room-features">
+            <span class="feat">AC</span>
+            <span class="feat">Twin/Single</span>
+            <span class="feat">Headboard</span>
+            <span class="feat">Study desk</span>
+            <span class="feat">Wall sconces</span>
+          </div>
+          <p style="font-size:13.5px">Climate-controlled, with finer finishes for the long Doon summers.</p>
+          <div class="room-prices">
+            <div class="price-row">
+              <div class="l">Single</div>
+              <div class="p"><span class="cur">₹</span>3,10,000</div>
+              <div class="per">per year</div>
+            </div>
+            <div class="price-row">
+              <div class="l">Double</div>
+              <div class="p"><span class="cur">₹</span>2,00,000</div>
+              <div class="per">per year</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Type 3 -->
+      <article class="room">
+        <div class="room-photo placeholder">
+          <span class="tag" style="background:var(--ink);color:var(--bg)">Luxury</span>
+          <span>Suite photo · on request</span>
+        </div>
+        <div class="room-body">
+          <h3 class="room-title">Type 3 · <em>Suite</em></h3>
+          <div class="room-features">
+            <span class="feat">AC</span>
+            <span class="feat">Refrigerator</span>
+            <span class="feat">Microwave</span>
+            <span class="feat">Induction</span>
+            <span class="feat">In-room pantry</span>
+          </div>
+          <p style="font-size:13.5px">An in-room pantry and full appliance kit — the most independent way to live here.</p>
+          <div class="room-prices">
+            <div class="price-row">
+              <div class="l">Single</div>
+              <div class="p"><span class="cur">₹</span>3,60,000</div>
+              <div class="per">per year</div>
+            </div>
+            <div class="price-row">
+              <div class="l">Double</div>
+              <div class="p"><span class="cur">₹</span>2,35,000</div>
+              <div class="per">per year</div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="inclusions">
+      <span class="label">All rates include —</span>
+      <div class="items">
+        <span>Four meals daily</span>
+        <span>Laundry</span>
+        <span>High-speed Wi-Fi</span>
+        <span>All utilities</span>
+        <span>Gym &amp; theatre access</span>
+        <span>Housekeeping</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── AMENITIES ─── -->
+<section class="section amenities" id="amenities">
+  <div class="section-inner">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow"><span class="dot"></span>Amenities</div>
+        <h2 style="margin-top:14px">Built for the<br><em class="italic">long study year</em>.</h2>
+      </div>
+      <p class="lede">
+        A semester is long. We've stocked the building with the things that make
+        it livable — somewhere to move, somewhere to switch off, and the connectivity to work whenever you need to.
+      </p>
+    </div>
+
+    <div class="amen-grid">
+      <div class="amen photo a1">
+        <img src="photos/03.jpg" alt="Hostel gym with treadmills and ellipticals">
+        <div class="overlay">
+          <div>
+            <div class="num">01</div>
+            <div class="ttl">A real <em>gym</em>, not a token room.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="amen a2">
+        <div class="num">02</div>
+        <div>
+          <div class="ttl">Private <em>theatre</em></div>
+          <div class="desc" style="margin-top:8px">A dedicated screening room for movie nights — booked floor-by-floor through the office.</div>
+        </div>
+      </div>
+
+      <div class="amen a3">
+        <div class="num">03</div>
+        <div>
+          <div class="ttl">High-speed <em>Wi-Fi</em></div>
+          <div class="desc" style="margin-top:8px">Mesh coverage on every floor, including the common areas and balconies.</div>
+        </div>
+      </div>
+
+      <div class="amen a4">
+        <div class="num">04</div>
+        <div>
+          <div class="ttl">Game room with <em>table tennis</em></div>
+          <div class="desc" style="margin-top:8px">For breaks between deadlines. Open all hours.</div>
+        </div>
+      </div>
+
+      <div class="amen a5">
+        <div class="num">05</div>
+        <div>
+          <div class="ttl">Housekeeping, <em>laundry</em>, and a kitchen that doesn't sleep</div>
+          <div class="desc" style="margin-top:8px">Rooms cleaned to schedule. Hot water through the day. A mess that respects exam-week hours.</div>
+        </div>
+      </div>
+
+      <div class="amen a6">
+        <div class="num">06</div>
+        <div>
+          <div class="ttl">Open <em>balconies</em></div>
+          <div class="desc" style="margin-top:8px">Every floor has a long balcony facing the green — for tea, sun, and breaks.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SAFETY ─── -->
+<section class="section" id="safety">
+  <div class="section-inner">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow"><span class="dot"></span>Safety</div>
+        <h2 style="margin-top:14px">A house designed<br>for <em class="italic">peace of mind</em>.</h2>
+      </div>
+      <p class="lede">
+        Safety is non-negotiable. The protocols below have produced
+        <em class="italic">zero incidents in the last three years</em> — a record we'd rather brag about quietly than loudly.
+      </p>
+    </div>
+
+    <div class="safety-grid">
+      <div>
+        <ul class="safety-list">
+          <li>
+            <div class="ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div>
+              <div class="ttl">24/7 trained security staff</div>
+              <div class="ds">Two on-shift guards at all hours, with regular professional training.</div>
+            </div>
+          </li>
+          <li>
+            <div class="ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/></svg>
+            </div>
+            <div>
+              <div class="ttl">Full-coverage CCTV</div>
+              <div class="ds">All entries, hallways, and common areas under continuous monitored recording.</div>
+            </div>
+          </li>
+          <li>
+            <div class="ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <div>
+              <div class="ttl">Strict access control</div>
+              <div class="ds">Residents-only entry beyond the office. No male visitors past the front desk — no exceptions.</div>
+            </div>
+          </li>
+          <li>
+            <div class="ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6"/><path d="M5.22 5.22l4.24 4.24"/><path d="M2 12h6"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+            <div>
+              <div class="ttl">Parent line, always open</div>
+              <div class="ds">Direct office contact for parents — for check-ins, leave coordination, or anything at all.</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="safety-stats">
+          <div class="safety-stat">
+            <div class="big"><em>0</em></div>
+            <div class="lab">Safety incidents reported in the last three years.</div>
+          </div>
+          <div class="safety-stat">
+            <div class="big">100<em>%</em></div>
+            <div class="lab">Female-only resident floors. Office is the male-staff boundary.</div>
+          </div>
+          <div class="safety-stat">
+            <div class="big"><em>24</em>/7</div>
+            <div class="lab">Guards on shift and recorded surveillance.</div>
+          </div>
+          <div class="safety-stat">
+            <div class="big"><em>2</em></div>
+            <div class="lab">Independent entry points, both badge-controlled.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── MEALS ─── -->
+<section class="section meals">
+  <div class="section-inner">
+    <div class="section-head" style="grid-template-columns: 1fr 1.4fr">
+      <div>
+        <div class="eyebrow" style="color:#e8d6a3"><span class="dot" style="background:#e8d6a3"></span>The Mess</div>
+        <h2 style="margin-top:14px">Four <em class="italic">home-cooked</em><br>meals a day.</h2>
+      </div>
+      <p class="lede">
+        Our kitchen cooks four meals a day from fresh, locally sourced produce.
+        The menu rotates weekly and accommodates Jain, vegetarian, and dietary-restricted residents on request.
+      </p>
+    </div>
+
+    <div class="meals-grid">
+      <div class="meal-card">
+        <div class="tm">07:30 – 09:30</div>
+        <div class="nm"><em>Breakfast</em></div>
+        <div class="ex">Paratha, poha, chole-bhature, eggs to order, fruit, milk &amp; chai.</div>
+      </div>
+      <div class="meal-card">
+        <div class="tm">12:30 – 14:30</div>
+        <div class="nm"><em>Lunch</em></div>
+        <div class="ex">Dal, sabzi, rice, roti, salad &amp; curd. Pickle and papad daily.</div>
+      </div>
+      <div class="meal-card">
+        <div class="tm">17:00 – 18:00</div>
+        <div class="nm"><em>Hi-Tea</em></div>
+        <div class="ex">A hot snack with masala chai or coffee — for the long evening study block.</div>
+      </div>
+      <div class="meal-card">
+        <div class="tm">20:00 – 22:00</div>
+        <div class="nm"><em>Dinner</em></div>
+        <div class="ex">Rotating dal-sabzi-roti-rice menu, with one weekly special and seasonal sweet.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── LOCATION ─── -->
+<section class="section" id="location">
+  <div class="section-inner">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow"><span class="dot"></span>Location</div>
+        <h2 style="margin-top:14px">In Kandoli,<br><em class="italic">next to campus</em>.</h2>
+      </div>
+      <p class="lede">
+        Pondha, Dehradun — adjacent to the Gurudwara on the road that runs straight to UPES.
+        Quiet at night, walkable in the day, and ten minutes from anything you'd need beyond it.
+      </p>
+    </div>
+
+    <div class="location-grid">
+      <div class="map-frame">
+        <iframe
+          src="https://maps.google.com/maps?q=30.381027,77.9701993&hl=en&z=17&t=m&output=embed&iwloc=near"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="HSR View Inn on Google Maps"
+          allowfullscreen></iframe>
+        <a class="map-directions" href="https://www.google.com/maps/dir/?api=1&destination=30.381027,77.9701993" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.71 11.29l-9-9a1 1 0 0 0-1.42 0l-9 9a1 1 0 0 0 0 1.42l9 9a1 1 0 0 0 1.42 0l9-9a1 1 0 0 0 0-1.42z"/><path d="M9 13v-2a2 2 0 0 1 2-2h4"/><path d="M13 7l2 2-2 2"/></svg>
+          Get directions
+        </a>
+        <div class="map-coords">30.3810° N · 77.9702° E</div>
+      </div>
+
+      <div class="address-card">
+        <div class="addr-row">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div>
+            <div class="lab">Address</div>
+            <div class="val">A-1, near UPES University,<br>adjacent to Gurudwara,<br>Pondha, Uttarakhand 248007</div>
+            <a href="https://maps.app.goo.gl/SEw9Yo8rqRZZ4viz5" target="_blank" rel="noopener" style="font-size:12.5px; color:var(--accent); margin-top:8px; display:inline-flex; align-items:center; gap:6px; font-weight:600;">
+              Open in Google Maps
+              <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="addr-row">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+          <div>
+            <div class="lab">Bookings &amp; Front Desk</div>
+            <div class="val"><a href="tel:+919654946285">+91 96549 46285</a></div>
+            <div style="font-size:12.5px; color:var(--ink-3); margin-top:4px">Call or WhatsApp · Open daily, 9 AM – 9 PM</div>
+          </div>
+        </div>
+
+        <div class="nearby">
+          <div class="h">Walking distance</div>
+          <ul class="nearby-list">
+            <li><span class="pl">UPES Kandoli campus</span><span class="ln"></span><span class="dx">2 min</span></li>
+            <li><span class="pl">Gurudwara, Pondha</span><span class="ln"></span><span class="dx">1 min</span></li>
+            <li><span class="pl">Local market &amp; pharmacy</span><span class="ln"></span><span class="dx">6 min</span></li>
+            <li><span class="pl">Bidholi gate / bus stop</span><span class="ln"></span><span class="dx">9 min</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── BOOK ─── -->
+<section class="section book" id="contact">
+  <div class="section-inner">
+    <div>
+      <div class="eyebrow" style="color:#e8d6a3"><span class="dot" style="background:#e8d6a3"></span>Reserve a Room</div>
+      <h2 style="margin-top:14px">Come <em class="italic">see</em> it.<br>Then decide.</h2>
+      <p class="lede">
+        Most parents visit before they commit, and we encourage it.
+        Call the front desk and we'll set time aside to walk you through every room type, the mess, and the safety setup. No appointment needed for the campus visit window.
+      </p>
+    </div>
+
+    <div class="book-actions">
+      <a class="book-phone" href="tel:+919654946285">
+        <span class="lab">Bookings &amp; Front Desk</span>
+        <span class="num">+91 96549 46285</span>
+        <span class="sub">Call or WhatsApp · Open daily, 9 AM to 9 PM</span>
+      </a>
+      <div class="book-secondary">
+        <a href="https://www.google.com/maps/dir/?api=1&destination=30.381027,77.9701993" target="_blank" rel="noopener" class="btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Get directions
+        </a>
+        <a href="#rooms" class="btn">
+          See rooms again
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="foot-inner">
+    <a href="#top" class="brand">
+      <span class="mark">H</span>
+      <span class="name">HSR View Inn</span>
+      <small>Girls' Hostel · Kandoli</small>
+    </a>
+    <div>© <span id="yr">2026</span> · HSR View Inn · A-1 Pondha, Uttarakhand 248007</div>
+  </div>
+</footer>
+
+<script>
+  // sticky nav background
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 24);
+  document.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  // year
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // fade-up on scroll
+  const io = new IntersectionObserver((entries)=>{
+    for (const e of entries){
+      if (e.isIntersecting){
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    }
+  }, {threshold: 0.08, rootMargin: '0px 0px -40px 0px'});
+
+  // Auto-tag fadeable items
+  const fadeTargets = document.querySelectorAll(
+    '.section-head, .room, .amen, .safety-stat, .safety-list li, .meal-card, .address-card, .map-frame, .book-actions, .trust-item, .inclusions'
+  );
+  fadeTargets.forEach(el => {
+    el.classList.add('fade-up');
+    io.observe(el);
+  });
+
+  // Hero content is above-the-fold: reveal immediately
+  requestAnimationFrame(() => {
+    document.querySelectorAll('.hero .fade-up').forEach(el => el.classList.add('in'));
+  });
+</script>
+</body>
+</html>
